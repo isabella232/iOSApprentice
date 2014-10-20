@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C1F8850F-C763-44CF-8F02-733862E70545</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Checklists</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E4EA8F27FAD98872249E519B2D58754923CD93D1</key>
+		<string>https://github.com/googlegis/iOSApprentice.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Checklists/Checklists.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E4EA8F27FAD98872249E519B2D58754923CD93D1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/googlegis/iOSApprentice.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E4EA8F27FAD98872249E519B2D58754923CD93D1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E4EA8F27FAD98872249E519B2D58754923CD93D1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOSApprentice</string>
+		</dict>
+	</array>
+</dict>
+</plist>
