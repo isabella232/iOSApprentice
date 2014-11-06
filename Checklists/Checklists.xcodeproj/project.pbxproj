@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		693E1FBA1A0BA9760053DF6F /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E1FB91A0BA9760053DF6F /* ChecklistItem.swift */; };
 		694CECF919F557F700D1E524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694CECF819F557F700D1E524 /* AppDelegate.swift */; };
 		694CECFB19F557F700D1E524 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694CECFA19F557F700D1E524 /* ChecklistViewController.swift */; };
 		694CECFE19F557F700D1E524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694CECFC19F557F700D1E524 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		693E1FB91A0BA9760053DF6F /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		694CECF319F557F700D1E524 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		694CECF719F557F700D1E524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		694CECF819F557F700D1E524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				694CECFF19F557F700D1E524 /* Images.xcassets */,
 				694CED0119F557F700D1E524 /* LaunchScreen.xib */,
 				694CECF619F557F700D1E524 /* Supporting Files */,
+				693E1FB91A0BA9760053DF6F /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				694CECFB19F557F700D1E524 /* ChecklistViewController.swift in Sources */,
+				693E1FBA1A0BA9760053DF6F /* ChecklistItem.swift in Sources */,
 				694CECF919F557F700D1E524 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +409,7 @@
 				694CED1419F557F700D1E524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		694CED1519F557F700D1E524 /* Build configuration list for PBXNativeTarget "ChecklistsTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				694CED1719F557F700D1E524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
