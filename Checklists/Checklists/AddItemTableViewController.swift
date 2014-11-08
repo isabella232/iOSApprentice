@@ -26,7 +26,7 @@ class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
       delegate?.addItemViewControllerDidCancel(self)
     }
     
-    @IBAction func done() {
+    @IBAction func done() { 
         let item = ChecklistItem()
         item.text = textField.text
         item.checked = false
