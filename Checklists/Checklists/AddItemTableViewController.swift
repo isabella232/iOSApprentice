@@ -37,8 +37,8 @@ class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
     override func tableView(tableView:UITableView,willSelectRowAtIndexPath indexPath:NSIndexPath)->NSIndexPath?{
         return nil
     }
-    
-    override func viewWillAppear(animated: Bool) {  
+     
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
     }
