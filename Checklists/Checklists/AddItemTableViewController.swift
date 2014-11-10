@@ -26,7 +26,7 @@ class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
       delegate?.addItemViewControllerDidCancel(self)
     }
     
-    @IBAction func done() { 
+    @IBAction func done() {
         let item = ChecklistItem()
         item.text = textField.text
         item.checked = false
@@ -38,7 +38,7 @@ class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
         return nil
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {  
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
     }
