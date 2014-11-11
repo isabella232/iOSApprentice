@@ -97,10 +97,12 @@ class ChecklistViewController: UITableViewController ,AddItemViewControllerDeleg
     
     func configureCheckmarkForCell (cell:UITableViewCell,withChecklistItem item:ChecklistItem){
         
+        let label = cell.viewWithTag(1001) as UILabel
+        
         if item.checked {
-            cell.accessoryType = .Checkmark
+            label.text = "√"
         } else {
-            cell.accessoryType = .None
+            label.text = ""
         }
     }
     
@@ -128,6 +130,22 @@ class ChecklistViewController: UITableViewController ,AddItemViewControllerDeleg
         dismissViewControllerAnimated(true, completion:nil)
     }
     
+    func addItemViewController(controller:AddItemTableViewController,didFinishEditingItem item:ChecklistItem){
+    
+        if let index = find(items, item) {
+            
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            
+                configureTextForCell(cell, withChecklistItem: item)
+                
+            }
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -138,6 +156,15 @@ class ChecklistViewController: UITableViewController ,AddItemViewControllerDeleg
             let controller = navigationController.topViewController as AddItemTableViewController
             
             controller.delegate = self
+        } else if segue.identifier == "EditItem" {
+            let navigationController = segue.destinationViewController as UINavigationController
+            let controller = navigationController.topViewController as AddItemTableViewController
+            
+            controller.delegate = self
+            
+            if let indexPath = tableView.indexPathForCell(sender as UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
     }
     

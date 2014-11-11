@@ -12,10 +12,13 @@ protocol AddItemViewControllerDelegate: class {
     func addItemViewControllerDidCancel(controller:AddItemTableViewController)
     func addItemViewController(controller:AddItemTableViewController,didFinishAddingItem item:ChecklistItem)
     
+    func addItemViewController(controller:AddItemTableViewController,didFinishEditingItem item:ChecklistItem)
+    
 }
 
 class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
 
+    var itemToEdit:ChecklistItem?
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
@@ -27,11 +30,16 @@ class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
     }
     
     @IBAction func done() {
-        let item = ChecklistItem()
-        item.text = textField.text
-        item.checked = false
         
-        delegate?.addItemViewController(self, didFinishAddingItem: item)
+        if let item = itemToEdit {
+            item.text = textField.text
+            delegate?.addItemViewController(self, didFinishEditingItem: item)
+        } else {
+            let item = ChecklistItem()
+            item.text = textField.text
+            item.checked = false
+            delegate?.addItemViewController(self, didFinishAddingItem: item)
+        }
     }
     
     override func tableView(tableView:UITableView,willSelectRowAtIndexPath indexPath:NSIndexPath)->NSIndexPath?{
@@ -57,15 +65,17 @@ class AddItemTableViewController: UITableViewController,UITextFieldDelegate {
         
         return true
     }
-   // override func viewDidLoad() {
-    //    super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-   // }
+         tableView.rowHeight = 44
+        if let item = itemToEdit {
+            title = "Edit Item"
+            textField.text = item.text
+            doneBarButton.enabled = true
+        }
+    }
 
    // override func didReceiveMemoryWarning() {
    //     super.didReceiveMemoryWarning()
