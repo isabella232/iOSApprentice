@@ -2,8 +2,8 @@
 //  BullsEyeTests.swift
 //  BullsEyeTests
 //
-//  Created by Jay on 10/11/14.
-//  Copyright (c) 2014 Jay. All rights reserved.
+//  Created by Jay on 15/6/8.
+//  Copyright (c) 2015年 look4us. All rights reserved.
 //
 
 import UIKit
