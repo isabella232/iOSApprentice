@@ -214,6 +214,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="doneBarButton" destination="EJe-A1-2g5" id="b14-GV-wFX"/>
                         <outlet property="textField" destination="aY1-DR-eti" id="ZTS-fP-rw1"/>
                     </connections>
                 </tableViewController>
