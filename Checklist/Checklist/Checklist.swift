@@ -14,9 +14,19 @@ class Checklist: NSObject,NSCoding {
     
     var items = [ChecklistItem]()
     
-    init(name:String)  {
+    var iconName: String
+    
+    convenience init(name:String)  {
+        
+        self.init(name:name,iconName:"No Icon")
+        
+    }
+    
+    init(name:String,iconName:String)  {
     
         self.name = name
+        
+        self.iconName = iconName
         
         super.init()
         
@@ -28,6 +38,8 @@ class Checklist: NSObject,NSCoding {
         
         items = aDecoder.decodeObjectForKey("Items") as! [ChecklistItem]
         
+        iconName = aDecoder.decodeObjectForKey("IconName") as! String
+        
         super.init()
     }
     
@@ -36,6 +48,21 @@ class Checklist: NSObject,NSCoding {
         aCoder.encodeObject(name, forKey: "Name")
         
         aCoder.encodeObject(items, forKey: "Items")
+    }
+    
+    func countUncheckedItems()->Int{
+    
+        var count = 0
+        
+        for item in items {
+            
+            if !item.checked {
+                
+                count += 1
+            }
+        }
+        
+        return count
     }
     
 }
