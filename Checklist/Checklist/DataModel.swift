@@ -101,7 +101,7 @@ class DataModel {
         
         if firstTime {
         
-            let checklist = Checklist(name: "Checklist")
+            let checklist = Checklist(name: "List")
             
             lists.append(checklist)
             

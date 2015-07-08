@@ -15,7 +15,7 @@ class ChecklistItem:NSObject,NSCoding {
     var checked = false
  
     
-    required init(coder aDecoder:NSCoder){
+    required init?(coder aDecoder:NSCoder){
         
         text =  aDecoder.decodeObjectForKey("Text") as! String
         

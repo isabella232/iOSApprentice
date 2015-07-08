@@ -32,7 +32,7 @@ class Checklist: NSObject,NSCoding {
         
     }
     
-    required init(coder aDecoder:NSCoder){
+    required init?(coder aDecoder:NSCoder){
     
         name = aDecoder.decodeObjectForKey("Name") as! String
         
@@ -48,6 +48,8 @@ class Checklist: NSObject,NSCoding {
         aCoder.encodeObject(name, forKey: "Name")
         
         aCoder.encodeObject(items, forKey: "Items")
+        
+        aCoder.encodeObject(iconName,forKey:"IconName")
     }
     
     func countUncheckedItems()->Int{

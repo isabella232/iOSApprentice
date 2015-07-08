@@ -99,7 +99,7 @@ class AllListsViewController: UITableViewController,ListDetailViewControllerDele
     
     override func tableView(tableView:UITableView,didSelectRowAtIndexPath indexPath:NSIndexPath){
     
-        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: "ChecklistIndex")
+        //NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: "ChecklistIndex")
         
         dataModel.indexOfSelectedChecklist = indexPath.row
         
