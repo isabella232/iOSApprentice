@@ -28,6 +28,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         controller.dataModel = dataModel
         
+        
+        
+        
+        let notificationType:UIUserNotificationType = [.Alert,.Sound]
+        
+        let notificationSettings = UIUserNotificationSettings(forTypes: notificationType, categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+        
+        let date = NSDate(timeIntervalSinceNow: 10)
+        
+        let localNotification = UILocalNotification()
+        
+        localNotification.fireDate = date
+        
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        
+        localNotification.alertBody = "I am a local notification!"
+        
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
         return true
     }
 
@@ -56,6 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         saveData()
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+        print("didReceiveLocalNotification \(notification)")
     }
     
 }

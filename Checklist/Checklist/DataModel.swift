@@ -72,7 +72,7 @@ class DataModel {
     
     func registerDefaults(){
     
-        let dictionary = ["ChecklistIndex":-1,"FirstTime":true]
+        let dictionary = ["ChecklistIndex":-1,"FirstTime":true,"ChecklistItemID":0]
         
         NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
     }
@@ -119,5 +119,20 @@ class DataModel {
                 checklist1.name.localizedStandardCompare(checklist2.name) ==
                                                         NSComparisonResult.OrderedAscending})
     }
+    
+    class func nextChecklistItemID() -> Int {
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let itemID = userDefaults.integerForKey("ChecklistItemID")
+        
+        userDefaults.setInteger(itemID+1, forKey: "ChecklistItemID")
+        
+        userDefaults.synchronize()
+        
+        return itemID
+    }
+    
+    
     
 }
