@@ -83,6 +83,8 @@ class ItemDetailViewController: UITableViewController,UITextFieldDelegate {
             
             item.dueDate = dueDate
             
+            item.scheduleNotification()
+            
             delegate?.itemDetailViewController(self, didFinishEditingItem: item)
         
         } else {
@@ -97,19 +99,22 @@ class ItemDetailViewController: UITableViewController,UITextFieldDelegate {
         
         item.dueDate = dueDate
             
+        item.scheduleNotification()
+            
         delegate?.itemDetailViewController(self, didFinishAddingItem: item)
         
         }
     }
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    @IBAction func shouldRemindToggled(switchControl:UISwitch){
+    
+        textField.resignFirstResponder()
         
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if switchControl.on {
         
-            return indexPath
-        } else {
-        
-            return nil
+            let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert,.Sound], categories: nil)
+            
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         }
     }
     
@@ -125,10 +130,11 @@ class ItemDetailViewController: UITableViewController,UITextFieldDelegate {
                 
                 cell.selectionStyle = .None
                 
-                
                 let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 320, height: 216))
                 
                 datePicker.tag = 100
+                
+                cell.contentView.addSubview(datePicker)
                 
                 datePicker.addTarget(self, action: Selector("dateChanged:"), forControlEvents: .ValueChanged)
                 }
@@ -140,6 +146,17 @@ class ItemDetailViewController: UITableViewController,UITextFieldDelegate {
                 return super.tableView(tableView,cellForRowAtIndexPath: indexPath)
             }
             
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            
+            return indexPath
+        } else {
+            
+            return nil
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -253,7 +270,6 @@ class ItemDetailViewController: UITableViewController,UITextFieldDelegate {
         tableView.endUpdates()
         
         if let pickerCell = tableView.cellForRowAtIndexPath(indexPathDatePicker) {
-        
             
             let datePicker = pickerCell.viewWithTag(100) as! UIDatePicker
             
