@@ -65,6 +65,9 @@ class LocationDetailsViewController:UITableViewController {
     
     var descriptionText =  ""
     
+    var image:UIImage?
+    
+    var observer: AnyObject!
     
     
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -78,6 +81,12 @@ class LocationDetailsViewController:UITableViewController {
     @IBOutlet weak var addressLabel:UILabel!
     
     @IBOutlet weak var dateLabel:UILabel!
+    
+    
+    @IBOutlet weak var imageView:UIImageView!
+    
+    @IBOutlet weak var addPhotoLabel:UILabel!
+    
     
     @IBAction func done() {
     
@@ -99,9 +108,10 @@ class LocationDetailsViewController:UITableViewController {
             
             location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: manageObjectContext) as! Location
         
+            location.photoID = nil
+        
         }
-        
-        
+    
         
         location.locatoinDescription = descriptionTextView.text
         
@@ -114,6 +124,28 @@ class LocationDetailsViewController:UITableViewController {
         location.date = date
         
         location.placemark = placemark
+        
+        if let image = image {
+        
+            if !location.hasPhoto {
+            
+                location.photoID = Location.nextPhotoID()
+                
+            }
+            
+            if let data = UIImageJPEGRepresentation(image, 0.5){
+            
+                do {
+                
+                    try data.writeToFile(location.photoPath, options: .DataWritingAtomic)
+                
+                }catch{
+                
+                    print("Error writing file:\(error)")
+                }
+            }
+        }
+        
         
         do {
         
@@ -142,6 +174,14 @@ class LocationDetailsViewController:UITableViewController {
         if let location = locationToEdit{
         
             title = "Edit location"
+            
+            if location.hasPhoto {
+                
+                if let image = location.photoImage {
+                
+                    showImage(image)
+                }
+            }
         }
         
         descriptionTextView.text = descriptionText
@@ -169,6 +209,21 @@ class LocationDetailsViewController:UITableViewController {
         gestureRecognizer.cancelsTouchesInView = false
         
         tableView.addGestureRecognizer(gestureRecognizer)
+        
+        listenForBackgroudNotification()
+        
+        tableView.backgroundColor = UIColor.blackColor()
+        tableView.separatorColor = UIColor(white: 1.0, alpha: 0.2)
+        tableView.indicatorStyle = .White
+        
+        descriptionTextView.textColor = UIColor.whiteColor()
+        descriptionTextView.backgroundColor = UIColor.blackColor()
+        
+        addPhotoLabel.textColor = UIColor.whiteColor()
+        addPhotoLabel.highlightedTextColor = addPhotoLabel.textColor
+        
+        addressLabel.textColor = UIColor(white: 1.0, alpha: 0.4)
+        addressLabel.highlightedTextColor = addressLabel.textColor
     }
     
     
@@ -189,12 +244,14 @@ class LocationDetailsViewController:UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if indexPath.section == 0 && indexPath.row == 0 {
         
+        switch(indexPath.section,indexPath.row){
+        
+        case (0,0):
             return 88
-        
-        } else if indexPath.section == 2 && indexPath.row == 2 {
-            
+        case (1,_):
+            return imageView.hidden ? 44:280
+        case (2,2):
             addressLabel.frame.size = CGSize(width: view.bounds.size.width - 115, height: 10000)
             
             addressLabel.sizeToFit()
@@ -202,11 +259,11 @@ class LocationDetailsViewController:UITableViewController {
             addressLabel.frame.origin.x = view.bounds.size.width - addressLabel.frame.size.width - 15
             
             return addressLabel.frame.size.height + 20
-        
-        } else {
-        
+        default:
+            
             return 44
         }
+        
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
@@ -227,56 +284,72 @@ class LocationDetailsViewController:UITableViewController {
         
             descriptionTextView.becomeFirstResponder()
         
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+        
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
+            pickPhoto()
+        
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        cell.backgroundColor = UIColor.blackColor()
+        
+        if let textLabel = cell.textLabel {
+        
+            textLabel.textColor = UIColor.whiteColor()
+            
+            textLabel.highlightedTextColor = textLabel.textColor
+            
+        }
+        
+        if let detailLabel = cell.detailTextLabel {
+            
+            detailLabel.textColor = UIColor(white: 1.0, alpha: 0.4)
+            
+            detailLabel.highlightedTextColor = detailLabel.textColor
+        }
+        
+        let selectionView = UIView(frame: CGRect.zero)
+        
+        selectionView.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        
+        cell.selectedBackgroundView = selectionView
+        
+        if indexPath.row == 2 {
+        
+            let addressLabel = cell.viewWithTag(100) as! UILabel
+            
+            addressLabel.textColor = UIColor.whiteColor()
+            
+            addressLabel.highlightedTextColor = addressLabel.textColor
+        
         }
     }
     
     func stringFromPlacemark(placemark:CLPlacemark) -> String {
     
-        var text  = ""
+        var line  = ""
         
+        line.addText(placemark.subThoroughfare)
         
-        if let s = placemark.subThoroughfare {
+        line.addText(placemark.thoroughfare,withSeparator:" ")
         
-            text += s + " "
-        }
+        line.addText(placemark.subLocality, withSeparator: " ")
         
-        if let s = placemark.thoroughfare {
+        line.addText(placemark.locality, withSeparator: ", ")
         
-            text += s + ", "
-        }
+        line.addText(placemark.administrativeArea, withSeparator: " ")
         
+        line.addText(placemark.postalCode, withSeparator: ", ")
         
-        if let s = placemark.subLocality {
+        line.addText(placemark.country, withSeparator: ", ")
         
-            text += s + " "
+        print("the address is:\(line)")
         
-        }
-        
-        if let s = placemark.locality {
-        
-            text += s + ", "
-        }
-        
-        if let s = placemark.administrativeArea {
-        
-            text += s + " "
-        }
-        
-        if let s = placemark.postalCode {
-        
-            text += s + ", "
-        
-        }
-        
-        if let s = placemark.country {
-        
-            text  += s
-            
-        }
-        
-        print("the address is:\(text)")
-        
-        return text
+        return line
     
     }
 
@@ -305,5 +378,114 @@ class LocationDetailsViewController:UITableViewController {
         categoryLabel.text = categoryName
     
     }
+    
+    
+    func showImage(image:UIImage){
+        
+        imageView.image = image
+        imageView.hidden = false
+        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+        addPhotoLabel.hidden = true
+    }
+    
+    func listenForBackgroudNotification() {
+    
+      observer = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidEnterBackgroundNotification, object: nil, queue: NSOperationQueue.mainQueue()){ [weak self] _ in
+        
+        if let strongSelf = self {
+        
+            if strongSelf.presentingViewController != nil {
+                
+                strongSelf.dismissViewControllerAnimated(false, completion: nil)
+                
+            }
+            
+            strongSelf.descriptionTextView.resignFirstResponder()
+        }
+        }
+    }
+    
+    deinit {
+        
+        print("*** deinit \(self)")
+        
+        NSNotificationCenter.defaultCenter().removeObserver(observer)
+    
+    }
+}
 
+
+extension LocationDetailsViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+
+    func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+        
+            showPhotoMenu()
+        } else {
+        
+            choosePhotoFromLibrary()
+        
+        }
+    }
+    
+    func showPhotoMenu(){
+    
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alertController.addAction(cancelAction)
+        
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: {_ in self.takePhotoWithCamera()})
+        
+        alertController.addAction(takePhotoAction)
+        
+        let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library", style: .Default, handler:{_ in self.choosePhotoFromLibrary()})
+        
+        alertController.addAction(chooseFromLibraryAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    
+    
+    }
+    
+    func takePhotoWithCamera() {
+    
+            let imagePicker = MyImagePickerController()
+        imagePicker.view.tintColor = view.tintColor
+        imagePicker.sourceType = .Camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        presentViewController(imagePicker, animated: true, completion: nil)
+    
+    }
+    
+    func choosePhotoFromLibrary() {
+    
+        let imagePicker = MyImagePickerController()
+        imagePicker.view.tintColor = view.tintColor
+        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        presentViewController(imagePicker, animated: true, completion: nil)
+    
+    
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        if let image = image {
+        
+            showImage(image)
+        
+        }
+        
+        tableView.reloadData()
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
 }

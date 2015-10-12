@@ -22,5 +22,6 @@ extension Location {
     @NSManaged var locatoinDescription: String?
     @NSManaged var date: NSDate
     @NSManaged var category: String?
+    @NSManaged var photoID:NSNumber?
 
 }
