@@ -152,7 +152,7 @@
 				TargetAttributes = {
 					69E00C0B1BBA3043007D0BEA = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = EA89VD8A87;
+						DevelopmentTeam = GXK7UKVY2G;
 					};
 				};
 			};
@@ -315,7 +315,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.look4us.MyLocations;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lookus.MyLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -329,7 +329,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.look4us.MyLocations;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lookus.MyLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

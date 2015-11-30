@@ -34,7 +34,7 @@ class DataModel {
     
     func dataFilePath()->String {
         
-        return documentsDirectory().stringByAppendingPathComponent("Checklists.plist")
+        return (documentsDirectory() as NSString).stringByAppendingPathComponent("Checklists.plist")
     }
     
     func saveChecklists() {

@@ -171,7 +171,7 @@
 				TargetAttributes = {
 					690548F71B25BDD3008B68EB = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = EA89VD8A87;
+						DevelopmentTeam = GXK7UKVY2G;
 					};
 					6905490C1B25BDD3008B68EB = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -350,7 +350,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.look4us.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lookus.BullsEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -362,7 +362,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BullsEye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.look4us.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lookus.BullsEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -11,10 +11,6 @@
 
 ### Part I  Bull's Eye .
 
-####  [Swift 2.0 纯学习之旅 -- 1.弹出提示框 和 Landscape 模式](http://googlegis.github.io/blog/2015/06/12/the-ios-apprentice-one-bull-eyes/)
-
-####  [Swift 2.0 纯学习之旅－2.主要代码](http://googlegis.github.io/blog/2015/06/16/show-the-random-slider-value/)
-
 ### Part II check's List .
 
 ### Part III  My Location.

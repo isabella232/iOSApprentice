@@ -141,6 +141,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             locationsViewController.managedObjectContext = managedObjectContext
             
+            let _ = locationsViewController.view
+            
             let currentLocationViewController = tabBarViewControllers[0] as! CurrentLocationViewController
             
             currentLocationViewController.managedObjectContext = managedObjectContext
