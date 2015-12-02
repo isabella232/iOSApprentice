@@ -8,17 +8,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="RXu-jC-n8A">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="RXu-jC-n8A" customClass="SearchResultCell" customModule="StoreSearch" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXu-jC-n8A" id="1rd-at-TuI">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-0F-oYn">
-                        <rect key="frame" x="15" y="10" width="60" height="60"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCl-Zd-dpm">
+                        <rect key="frame" x="90" y="44" width="222" height="18"/>
                         <animations/>
-                    </imageView>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moo-1L-x6P">
                         <rect key="frame" x="90" y="15" width="222" height="22"/>
                         <animations/>
@@ -26,23 +29,36 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCl-Zd-dpm">
-                        <rect key="frame" x="90" y="44" width="222" height="18"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-0F-oYn">
+                        <rect key="frame" x="15" y="10" width="60" height="60"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="1Xm-ch-euC"/>
+                            <constraint firstAttribute="width" constant="60" id="zTZ-vp-UEN"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="Moo-1L-x6P" firstAttribute="leading" secondItem="TCN-0F-oYn" secondAttribute="trailing" constant="15" id="Emw-KS-QdA"/>
-                    <constraint firstItem="Moo-1L-x6P" firstAttribute="top" secondItem="1rd-at-TuI" secondAttribute="topMargin" constant="15" id="HlM-SR-Ozy"/>
-                    <constraint firstItem="Moo-1L-x6P" firstAttribute="trailing" secondItem="1rd-at-TuI" secondAttribute="trailingMargin" constant="8" id="OZM-tN-5KH"/>
+                    <constraint firstItem="Moo-1L-x6P" firstAttribute="leading" secondItem="TCN-0F-oYn" secondAttribute="trailing" constant="15" id="Q36-ad-kIk"/>
+                    <constraint firstItem="XCl-Zd-dpm" firstAttribute="leading" secondItem="TCN-0F-oYn" secondAttribute="trailing" constant="15" id="aaO-ae-TsT"/>
+                    <constraint firstAttribute="trailing" secondItem="XCl-Zd-dpm" secondAttribute="trailing" constant="8" id="bVt-7o-APy"/>
+                    <constraint firstItem="Moo-1L-x6P" firstAttribute="top" secondItem="1rd-at-TuI" secondAttribute="topMargin" constant="15" id="bsd-HI-ane"/>
+                    <constraint firstItem="Moo-1L-x6P" firstAttribute="trailing" secondItem="1rd-at-TuI" secondAttribute="trailingMargin" constant="8" id="fgM-gJ-o3r"/>
+                    <constraint firstAttribute="bottom" secondItem="XCl-Zd-dpm" secondAttribute="bottom" constant="17.5" id="vC7-PC-ZHA"/>
+                    <constraint firstItem="TCN-0F-oYn" firstAttribute="leading" secondItem="1rd-at-TuI" secondAttribute="leading" constant="15" id="vbz-Zg-th0"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
+            <connections>
+                <outlet property="artistNameLabel" destination="XCl-Zd-dpm" id="kVP-TL-p5O"/>
+                <outlet property="artworkImageView" destination="TCN-0F-oYn" id="ezA-RN-h2U"/>
+                <outlet property="nameLabel" destination="Moo-1L-x6P" id="PvR-1u-zrh"/>
+            </connections>
             <point key="canvasLocation" x="382" y="259"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Placeholder" width="60" height="60"/>
+    </resources>
 </document>

@@ -20,9 +20,28 @@ class SearchViewController: UIViewController {
     var hasSearched = false
     
     
+    struct TableViewCellIdentifiers {
+        
+        static let searchResultCell = "SearchResultCell"
+        
+        static let nothingFoundCell = "NothingFoundCell"
+    }
+    
     override func viewDidLoad() {
+        
+        tableView.rowHeight = 80
+        
         super.viewDidLoad()
+        
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        
+        var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
+        
+        tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
+        
+        cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
+        
+        tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell)
     }
 
     
@@ -93,33 +112,25 @@ extension SearchViewController:UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cellIdentifer = "SearchResultCell"
-        
-        var cell:UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifer)
-        
-        if cell == nil {
-        
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifer)
-        
-        }
         
         if searchResults.count == 0 {
             
-            cell.textLabel!.text = "(Nothing to found)"
-            
-            cell.detailTextLabel!.text = ""
+            return tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.nothingFoundCell, forIndexPath: indexPath)
         
         } else {
         
+            let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.searchResultCell, forIndexPath: indexPath) as! SearchResultCell
+            
             let searchResult = searchResults[indexPath.row]
             
-            cell.textLabel!.text = searchResult.name
+            cell.nameLabel.text = searchResult.name
             
-            cell.detailTextLabel!.text = searchResult.artistName
+            cell.artistNameLabel.text = searchResult.artistName
+            
+             return cell
         
         }
-        
-        return cell
+       
     }
 
 }
