@@ -29,6 +29,8 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        searchBar.becomeFirstResponder()
+        
         tableView.rowHeight = 80
         
         super.viewDidLoad()
