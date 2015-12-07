@@ -324,7 +324,6 @@ extension SearchViewController:UISearchBarDelegate {
             tableView.reloadData()
             
             
-            
             hasSearched = true
             
             searchResults = [SearchResult]()
@@ -333,39 +332,33 @@ extension SearchViewController:UISearchBarDelegate {
             
             dispatch_async(queue){
             
+                let url = self.urlWithSearchText(searchBar.text!)
             
-            
-            
-            }
-            
-            let url = urlWithSearchText(searchBar.text!)
-
-            
-            if let jsonString = performStoreRequestWithURL(url),let dictionary = parseJson(jsonString) {
-                
+                if let jsonString = self.performStoreRequestWithURL(url),let dictionary = self.parseJson(jsonString) {
+                    
                     self.searchResults = self.parseDictionary(dictionary)
                     
                     self.searchResults.sortInPlace (<)
                     
-
-                dispatch_async(dispatch_get_main_queue()){
-                
-                    self.isLoading = false
-                    self.tableView.reloadData()
-                
-                }
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        
+                        self.isLoading = false
+                        self.tableView.reloadData()
+                        
+                    }
+                    
                     return
                 }
-            
+                
+                dispatch_async(dispatch_get_main_queue()){
+                    
+                    self.showNetworkError()
+                    
+                }
             }
-        
-        
-        dispatch_async(dispatch_get_main_queue()){
-        
-            self.showNetworkError()
-        
         }
-            
+        
     }
 
 }
