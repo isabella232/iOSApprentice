@@ -16,6 +16,8 @@
 		698138D01C0F2E7E00EC4829 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698138CF1C0F2E7E00EC4829 /* SearchResultCell.swift */; };
 		698138D21C0F37CA00EC4829 /* NothingFoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698138D11C0F37CA00EC4829 /* NothingFoundCell.swift */; };
 		698138D41C0F37F500EC4829 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698138D31C0F37F500EC4829 /* NothingFoundCell.xib */; };
+		699832A11C18578D00BAAD9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699832A01C18578D00BAAD9C /* DetailViewController.swift */; };
+		699832A31C185BB600BAAD9C /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699832A21C185BB600BAAD9C /* DimmingPresentationController.swift */; };
 		699859901C0F201E00856EFD /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6998598F1C0F201E00856EFD /* SearchResultCell.xib */; };
 		69CC3F631C17157100CFEEF3 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC3F621C17157100CFEEF3 /* UIImageView+DownloadImage.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		698138CF1C0F2E7E00EC4829 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		698138D11C0F37CA00EC4829 /* NothingFoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NothingFoundCell.swift; sourceTree = "<group>"; };
 		698138D31C0F37F500EC4829 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		699832A01C18578D00BAAD9C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		699832A21C185BB600BAAD9C /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		6998598F1C0F201E00856EFD /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		69CC3F621C17157100CFEEF3 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +82,8 @@
 				698138D31C0F37F500EC4829 /* NothingFoundCell.xib */,
 				694022211C14808100FE09A3 /* LoadingCell.xib */,
 				69CC3F621C17157100CFEEF3 /* UIImageView+DownloadImage.swift */,
+				699832A01C18578D00BAAD9C /* DetailViewController.swift */,
+				699832A21C185BB600BAAD9C /* DimmingPresentationController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -159,9 +165,11 @@
 				691E79661C0C7AF600616AAC /* SearchViewController.swift in Sources */,
 				690FF5AC1C0DE8D80068F7A9 /* SearchResult.swift in Sources */,
 				69CC3F631C17157100CFEEF3 /* UIImageView+DownloadImage.swift in Sources */,
+				699832A31C185BB600BAAD9C /* DimmingPresentationController.swift in Sources */,
 				698138D21C0F37CA00EC4829 /* NothingFoundCell.swift in Sources */,
 				698138D01C0F2E7E00EC4829 /* SearchResultCell.swift in Sources */,
 				691E79641C0C7AF600616AAC /* AppDelegate.swift in Sources */,
+				699832A11C18578D00BAAD9C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
