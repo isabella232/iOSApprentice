@@ -18,6 +18,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var genreLabel:UILabel!
     @IBOutlet weak var priceButton:UIButton!
     
+    enum AnimationStyle {
+    
+        case Slide
+        
+        case Fade
+    
+    }
+    
+    var dismissAnimationStyle = AnimationStyle.Fade
     
     var searchResult:SearchResult!
     
@@ -31,7 +40,7 @@ class DetailViewController: UIViewController {
         
         popupView.layer.cornerRadius = 10
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("close"))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.close))
         
         gestureRecognizer.cancelsTouchesInView = false
         
@@ -52,7 +61,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func close() {
     
-    
+       dismissAnimationStyle = .Slide
         dismissViewControllerAnimated(true, completion: nil)
     
     }
@@ -160,7 +169,15 @@ extension DetailViewController:UIViewControllerTransitioningDelegate {
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        return SlideOutAnimationController()
+        switch dismissAnimationStyle {
+            
+        case .Slide:
+            return SlideOutAnimationController()
+        case .Fade:
+            return FadeOutAnimationController()
+            
+        }
+        
     }
 }
 

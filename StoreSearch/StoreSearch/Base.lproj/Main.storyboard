@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search View Controller-->
@@ -92,22 +93,40 @@
             <point key="canvasLocation" x="396" y="288"/>
         </scene>
         <!--Landscape View Controller-->
-        <scene sceneID="5cR-le-eiy">
+        <scene sceneID="yky-IL-Uka">
             <objects>
-                <viewController id="tfL-pN-I9c" customClass="LandscapeViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandscapeViewController" id="uib-ag-us2" customClass="LandscapeViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zoJ-ar-M1S"/>
-                        <viewControllerLayoutGuide type="bottom" id="hjG-OO-tGq"/>
+                        <viewControllerLayoutGuide type="top" id="E2L-Fh-aUK"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Zx-jR-nSJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="a27-AQ-EEL">
+                    <view key="view" contentMode="scaleToFill" id="3ti-sJ-hPE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lWy-bM-qb3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uib-ag-us2" id="VNS-ev-TJA"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="T1o-uw-ixd">
+                                <rect key="frame" x="280" y="282" width="31" height="37"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="uib-ag-us2" eventType="valueChanged" id="SpX-mg-RVw"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControll" destination="T1o-uw-ixd" id="khK-ok-Kmy"/>
+                        <outlet property="scrollView" destination="lWy-bM-qb3" id="K4P-iM-EQI"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ReO-OS-BgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="REa-PV-fk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396" y="1100"/>
+            <point key="canvasLocation" x="395" y="972"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Nfh-jB-SST">
