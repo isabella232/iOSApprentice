@@ -9,8 +9,11 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
     @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
 
@@ -19,22 +22,32 @@ class SearchViewController: UIViewController {
     var landscapleViewController: LandscapeViewController?
     
     struct TableViewCellIdentifiers {
+    
         static let searchResultCell = "SearchResultCell"
+        
         static let nothingFoundCell = "NothingFoundCell"
+        
         static let loadingCell = "LoadingCell"
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0)
         
         var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
+        
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
         
+        
         cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
+        
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell)
         
+        
         cellNib = UINib(nibName: TableViewCellIdentifiers.loadingCell, bundle: nil)
+        
         tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
         
         tableView.rowHeight = 80
@@ -43,23 +56,59 @@ class SearchViewController: UIViewController {
     }
     
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func segmentChanged(sender: UISegmentedControl) {
+        
         performSearch()
+        
     }
     
-   
+    func performSearch() {
+        
+        
+        if let category = Search.Category(rawValue: segmentedControl.selectedSegmentIndex){
+            
+            
+            search.performSearchForText(searchBar.text!, category: category,completion: { success in
+                
+                if !success {
+                    
+                    self.showNetworkError()
+                    
+                }
+                
+                self.tableView.reloadData()
+                
+                self.landscapleViewController?.searchResultsReceived()
+                
+                
+            })
+            
+            tableView.reloadData()
+            
+            searchBar.resignFirstResponder()
+            
+        }
+        
+    }
+
     
     func showNetworkError() {
+        
         let alert = UIAlertController(
+        
             title: "Whoops...",
+            
             message: "There was an error reading from the iTunes Store. Please try again.",
+            
             preferredStyle: .Alert)
         
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
         alert.addAction(action)
         
         presentViewController(alert, animated: true, completion: nil)
@@ -134,20 +183,34 @@ class SearchViewController: UIViewController {
         }
     }
     
+    /**
+       隐藏进度
+     
+     - parameter coordinator: <#coordinator description#>
+     */
     func hideLandscapeViewWithCoordinator(coordinator:UIViewControllerTransitionCoordinator){
         
         if let controller = landscapleViewController {
         
             controller.willMoveToParentViewController(nil)
             
-            controller.view.removeFromSuperview()
-            
-            controller.removeFromParentViewController()
-        
-            landscapleViewController = nil
-        
+            coordinator.animateAlongsideTransition({ _ in
+                
+                controller.view.alpha = 0
+                
+                    if self.presentedViewController != nil {
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                    }
+                }, completion: { _ in
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParentViewController()
+                    self.landscapleViewController = nil
+            })
         }
     }
+    
     
 }
 
@@ -159,30 +222,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     }
     
-    func performSearch() {
-        
-        if let category = Search.Category(rawValue: segmentedControl.selectedSegmentIndex){
-        
-            
-            search.performSearchForText(searchBar.text!, category: category,completion: { success in
-                
-                if !success {
-                    
-                    self.showNetworkError()
-                    
-                }
-                
-                self.tableView.reloadData()
-                
-            })
-            
-            tableView.reloadData()
-            
-            searchBar.resignFirstResponder()
-        
-        }
-        
-    }
     
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached
@@ -191,6 +230,7 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 extension SearchViewController: UITableViewDataSource {
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch search.state {
@@ -203,7 +243,6 @@ extension SearchViewController: UITableViewDataSource {
         case .Results(let list):
             return list.count
         }
-
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -234,8 +273,11 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 extension SearchViewController: UITableViewDelegate {
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         performSegueWithIdentifier("ShowDetail", sender: indexPath)
     }
     

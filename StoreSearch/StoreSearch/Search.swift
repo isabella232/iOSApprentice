@@ -6,7 +6,10 @@
 //  Copyright © 2016年 look4us. All rights reserved.
 //
 
+
 import Foundation
+
+import UIKit
 
 
 typealias SearchComplete = (Bool) -> Void
@@ -52,6 +55,8 @@ class Search {
             
             dataTask?.cancel()
             
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
             state = .Loading
      
             
@@ -60,6 +65,7 @@ class Search {
             let session = NSURLSession.sharedSession()
             
             dataTask = session.dataTaskWithURL(url, completionHandler: {
+                
                 data, response, error in
                 
      
@@ -68,9 +74,11 @@ class Search {
                 var success = false
                 
                 if let error = error where error.code == -999 {
+                
                     return  // Search was cancelled
                     
-                } else if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 200,let data = data,dictionary = self.parseJSON(data) {
+                } else if let httpResponse = response as? NSHTTPURLResponse where
+                    httpResponse.statusCode == 200,let data = data,dictionary = self.parseJSON(data) {
                     
                      var searchResults = self.parseDictionary(dictionary)
                     if searchResults.isEmpty {
@@ -88,6 +96,8 @@ class Search {
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
+                    
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     
                     completion(success)
                 }
