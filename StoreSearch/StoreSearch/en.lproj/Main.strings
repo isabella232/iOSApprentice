@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Genre Value"; ObjectID = "9TQ-ux-ckb"; */
+"9TQ-ux-ckb.text" = "Genre Value";
+
+/* Class = "UISegmentedControl"; K2j-ur-kFM.segmentTitles[0] = "First"; ObjectID = "K2j-ur-kFM"; */
+"K2j-ur-kFM.segmentTitles[0]" = "First";
+
+/* Class = "UISegmentedControl"; K2j-ur-kFM.segmentTitles[1] = "Second"; ObjectID = "K2j-ur-kFM"; */
+"K2j-ur-kFM.segmentTitles[1]" = "Second";
+
+/* Class = "UILabel"; text = "Type:"; ObjectID = "Zj9-xR-P8V"; */
+"Zj9-xR-P8V.text" = "Type:";
+
+/* Class = "UILabel"; text = "Artist Name"; ObjectID = "cuS-GD-UDo"; */
+"cuS-GD-UDo.text" = "Artist Name";
+
+/* Class = "UISearchBar"; placeholder = "App Name,artist,song,ablum,e-book"; ObjectID = "oD0-s2-NLK"; */
+"oD0-s2-NLK.placeholder" = "App Name,artist,song,ablum,e-book";
+
+/* Class = "UIButton"; normalTitle = "$9.99"; ObjectID = "obN-xU-W4W"; */
+"obN-xU-W4W.normalTitle" = "$9.99";
+
+/* Class = "UILabel"; text = "Kind Value"; ObjectID = "ohb-Ii-4dW"; */
+"ohb-Ii-4dW.text" = "Kind Value";
+
+/* Class = "UISegmentedControl"; pvM-LF-kpy.segmentTitles[0] = "All"; ObjectID = "pvM-LF-kpy"; */
+"pvM-LF-kpy.segmentTitles[0]" = "All";
+
+/* Class = "UISegmentedControl"; pvM-LF-kpy.segmentTitles[1] = "Music"; ObjectID = "pvM-LF-kpy"; */
+"pvM-LF-kpy.segmentTitles[1]" = "Music";
+
+/* Class = "UISegmentedControl"; pvM-LF-kpy.segmentTitles[2] = "Software"; ObjectID = "pvM-LF-kpy"; */
+"pvM-LF-kpy.segmentTitles[2]" = "Software";
+
+/* Class = "UISegmentedControl"; pvM-LF-kpy.segmentTitles[3] = "E-books"; ObjectID = "pvM-LF-kpy"; */
+"pvM-LF-kpy.segmentTitles[3]" = "E-books";
+
+/* Class = "UILabel"; text = "Genre:"; ObjectID = "yE7-mQ-iqu"; */
+"yE7-mQ-iqu.text" = "Genre:";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "z4A-d6-ygg"; */
+"z4A-d6-ygg.text" = "Name";

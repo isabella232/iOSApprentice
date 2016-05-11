@@ -101,9 +101,9 @@ class SearchViewController: UIViewController {
         
         let alert = UIAlertController(
         
-            title: "Whoops...",
+            title: NSLocalizedString("Whoops...", comment: "Error alert: title"),
             
-            message: "There was an error reading from the iTunes Store. Please try again.",
+            message: NSLocalizedString("There was an error reading from the iTunes Store. Please try again.", comment: "Error alert: message"),
             
             preferredStyle: .Alert)
         
