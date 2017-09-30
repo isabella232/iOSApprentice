@@ -210,7 +210,7 @@
 				TargetAttributes = {
 					692C86AC1B417FD400D8E600 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = GXK7UKVY2G;
+						DevelopmentTeam = 9H7Z68UL97;
 					};
 					692C86C01B417FD500D8E600 = {
 						CreatedOnToolsVersion = 7.0;
@@ -418,7 +418,7 @@
 				INFOPLIST_FILE = Checklist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lookus.Checklists;
+				PRODUCT_BUNDLE_IDENTIFIER = com.look4us.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -433,7 +433,7 @@
 				INFOPLIST_FILE = Checklist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lookus.Checklists;
+				PRODUCT_BUNDLE_IDENTIFIER = com.look4us.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

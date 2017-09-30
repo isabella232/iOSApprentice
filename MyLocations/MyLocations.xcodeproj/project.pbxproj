@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		691A8EAF1BC7F5A000C14EA4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691A8EAE1BC7F5A000C14EA4 /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		691A8EAF1BC7F5A000C14EA4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691A8EAE1BC7F5A000C14EA4 /* MapViewController.swift */; };
 		697403491BC6B5C8005992B9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697403481BC6B5C8005992B9 /* MapKit.framework */; };
-		698734991BC4D2250017271B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698734981BC4D2250017271B /* Functions.swift */; settings = {ASSET_TAGS = (); }; };
-		6987349C1BC4D59C0017271B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6987349A1BC4D59C0017271B /* DataModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		6987349F1BC4DA580017271B /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987349D1BC4DA580017271B /* Location+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		698734A01BC4DA580017271B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987349E1BC4DA580017271B /* Location.swift */; settings = {ASSET_TAGS = (); }; };
-		698734A21BC51CFF0017271B /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698734A11BC51CFF0017271B /* LocationsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		698734A41BC525200017271B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698734A31BC525200017271B /* LocationCell.swift */; settings = {ASSET_TAGS = (); }; };
-		69B802391BC9F3A10086FCDB /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B802381BC9F3A10086FCDB /* UIImage+Resize.swift */; settings = {ASSET_TAGS = (); }; };
-		69B8023B1BC9FFBB0086FCDB /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8023A1BC9FFBB0086FCDB /* String+AddText.swift */; settings = {ASSET_TAGS = (); }; };
-		69B8023D1BCA4D540086FCDB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8023C1BCA4D540086FCDB /* MyTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
-		69B8023F1BCA4E2B0086FCDB /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8023E1BCA4E2B0086FCDB /* MyNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
-		69B802411BCA4EE30086FCDB /* MyImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B802401BCA4EE30086FCDB /* MyImagePickerController.swift */; settings = {ASSET_TAGS = (); }; };
-		69B802441BCBDA850086FCDB /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 69B802431BCBDA850086FCDB /* Sound.caf */; settings = {ASSET_TAGS = (); }; };
+		698734991BC4D2250017271B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698734981BC4D2250017271B /* Functions.swift */; };
+		6987349C1BC4D59C0017271B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6987349A1BC4D59C0017271B /* DataModel.xcdatamodeld */; };
+		6987349F1BC4DA580017271B /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987349D1BC4DA580017271B /* Location+CoreDataProperties.swift */; };
+		698734A01BC4DA580017271B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987349E1BC4DA580017271B /* Location.swift */; };
+		698734A21BC51CFF0017271B /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698734A11BC51CFF0017271B /* LocationsViewController.swift */; };
+		698734A41BC525200017271B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698734A31BC525200017271B /* LocationCell.swift */; };
+		69B802391BC9F3A10086FCDB /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B802381BC9F3A10086FCDB /* UIImage+Resize.swift */; };
+		69B8023B1BC9FFBB0086FCDB /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8023A1BC9FFBB0086FCDB /* String+AddText.swift */; };
+		69B8023D1BCA4D540086FCDB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8023C1BCA4D540086FCDB /* MyTabBarController.swift */; };
+		69B8023F1BCA4E2B0086FCDB /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B8023E1BCA4E2B0086FCDB /* MyNavigationController.swift */; };
+		69B802411BCA4EE30086FCDB /* MyImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B802401BCA4EE30086FCDB /* MyImagePickerController.swift */; };
+		69B802441BCBDA850086FCDB /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 69B802431BCBDA850086FCDB /* Sound.caf */; };
 		69E00C101BBA3043007D0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E00C0F1BBA3043007D0BEA /* AppDelegate.swift */; };
 		69E00C121BBA3043007D0BEA /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E00C111BBA3043007D0BEA /* CurrentLocationViewController.swift */; };
 		69E00C171BBA3043007D0BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E00C151BBA3043007D0BEA /* Main.storyboard */; };
 		69E00C191BBA3043007D0BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E00C181BBA3043007D0BEA /* Assets.xcassets */; };
-		69FC35931BBB761C00458ABE /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC35921BBB761C00458ABE /* LocationDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		69FC35951BBBC65100458ABE /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC35941BBBC65100458ABE /* CategoryPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		69FC35971BBCDB5500458ABE /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC35961BBCDB5500458ABE /* HudView.swift */; settings = {ASSET_TAGS = (); }; };
+		69FC35931BBB761C00458ABE /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC35921BBB761C00458ABE /* LocationDetailsViewController.swift */; };
+		69FC35951BBBC65100458ABE /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC35941BBBC65100458ABE /* CategoryPickerViewController.swift */; };
+		69FC35971BBCDB5500458ABE /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC35961BBCDB5500458ABE /* HudView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,7 +152,7 @@
 				TargetAttributes = {
 					69E00C0B1BBA3043007D0BEA = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = GXK7UKVY2G;
+						DevelopmentTeam = 9H7Z68UL97;
 					};
 				};
 			};
